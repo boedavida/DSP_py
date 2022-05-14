@@ -1,7 +1,7 @@
 # Interactive illustration of the relationship between 
 # a sine-wave's frequency and it's Fourier transfrom
 
-# Requirements: ipywidgets, numpy, scipy, and matplotlib
+# Requirements: ipywidgets, numpy, scipy, matplotlib, and Jupyter
 
 # Click Run Cell. Output opens in an interactive window.
 # Move the frequency slider at the top of the interactive plot.
