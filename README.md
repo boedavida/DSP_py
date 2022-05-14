@@ -8,6 +8,7 @@ Applies a butterworth filter to low-pass filter a simulated sinusoidal
 signal. Outputs plots of the simulated sigmal and its frequency 
 spectrum before and after filtering.
 
+
 frequency_interactive.py:
 
 Interactive illustration of the relationship between a sine-wave's frequency and it's Fourier transfrom.
