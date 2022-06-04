@@ -30,9 +30,11 @@ Requires Python 3, Numpy, Scipy, Matplotlib, and Jupyter.
 In a Jupyter notebook, creates and applies an IIR notch filter using scipy
 
 binary_to_numpy.py
+
 Requires Python 3 and Numpy
 Writes a numpy array to a binary file and reads data from a binary file and puts the data into a numpy array
 
 binary_to_numpy.ipynb
+
 Requires Python 3, Numpy and Jupyter
 Writes a numpy array to a binary file and reads data from a binary file and puts the data into a numpy array
