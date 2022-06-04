@@ -10,8 +10,8 @@ import matplotlib.pyplot as plt
 # Defining the specifications of the IIR Bandpass Notch-Filter
 # Create/view notch filter
 samp_freq = 1000  # Sample frequency (Hz)
-notch_freq = 50.0  # Frequency to be removed from signal (Hz)
-quality_factor = 20.0  # Quality factor
+notch_freq = 70.0  # Frequency to be removed from signal (Hz)
+quality_factor = 10.0  # Quality factor
 
 # Design a notch filter using signal.iirnotch
 b_notch, a_notch = signal.iirnotch(notch_freq, quality_factor, samp_freq)
@@ -20,16 +20,15 @@ b_notch, a_notch = signal.iirnotch(notch_freq, quality_factor, samp_freq)
 freq, h = signal.freqz(b_notch, a_notch, fs=2*np.pi)
 
 # Create and view signal that is a mixture of two different frequencies
-f1 = 15 # Frequency of 1st signal in Hz
-f2 = 50 # Frequency of 2nd signal in Hz
+f1 = 25 # Frequency of 1st signal in Hz
+f2 = 70 # Frequency of 2nd signal in Hz
 
 # Set time vector
 # Generate 1000 sample sequence in 1 sec
 n = np.linspace(0, 1, 1000)
 
 # Generate the signal containing f1 and f2
-noisySignal = np.sin(2*np.pi*f1*n) + np.sin(2*np.pi*f2*n) + \
-    np.random.normal(0, .1, 1000)*0.03
+noisySignal = np.sin(2*np.pi*f1*n) + np.sin(2*np.pi*f2*n) + np.random.normal(0, .005, 1000)
 
 # Apply notch filter to the noisy signal using signal.filtfilt
 outputSignal = signal.filtfilt(b_notch, a_notch, noisySignal)
