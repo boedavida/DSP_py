@@ -33,15 +33,23 @@ noisySignal = np.sin(2*np.pi*f1*n) + np.sin(2*np.pi*f2*n) + np.random.normal(0, 
 # Apply notch filter to the noisy signal using signal.filtfilt
 outputSignal = signal.filtfilt(b_notch, a_notch, noisySignal)
 
-# Plot magnitude response of the filter
-fig = plt.figure(figsize=(8, 6))
-plt.plot(freq*samp_freq/(2*np.pi), 20 * np.log10(abs(h)),
-		'r', label='Bandpass filter', linewidth='2')
+fig, ax = plt.subplots(2, 1, figsize=(8, 6))
+ax[0].plot(freq*samp_freq/(2*np.pi), 20*np.log10(abs(h)), 'r', label='Bandpass filter', linewidth='2')
+ax[0].set_title('Notch Filter Magnitude Response', fontsize=20)
+ax[0].set_xlabel('Frequency [Hz]', fontsize=18)
+ax[0].set_ylabel('Magnitude [dB]', fontsize=18)
+ax[0].set_xlim([0, 2*notch_freq])
+ax[0].grid(True)
 
-plt.xlabel('Frequency [Hz]', fontsize=20)
-plt.ylabel('Magnitude [dB]', fontsize=20)
-plt.title('Notch Filter', fontsize=20)
-plt.grid()
+ax[1].plot(freq*samp_freq/(2*np.pi), np.unwrap(np.angle(h))*180/np.pi, color='red')
+ax[1].set_title('Notch Filter Phase Response', fontsize=20)
+ax[1].set_xlabel("Frequency (Hz)", fontsize=18)
+ax[1].set_ylabel("Angle (degrees)", fontsize=18)
+ax[1].set_xlim([0, 2*notch_freq])
+ax[1].set_yticks([-90, -60, -30, 0, 30, 60, 90])
+ax[1].set_ylim([-90, 90])
+ax[1].grid(True)
+fig.tight_layout()
 
 # Plot original noisy signal
 fig = plt.figure(figsize=(8, 6))
