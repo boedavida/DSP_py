@@ -73,3 +73,5 @@ ax4.set_ylabel("Amplitude")
 ax4.set_title("Spectrum of filtered sig")
 plt.tight_layout()
 plt.show()
+
+print("\nGo U.C. Davis Aggies!\n")
